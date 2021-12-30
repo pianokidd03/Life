@@ -139,3 +139,12 @@ def next_gen(current_gen):
             row.append(determine_fate(current_gen, x, y))
         gen.append(row)
     return gen
+
+# Simple use case:
+# ----------------
+# current_gen = make_matrix()
+
+# for i in range(10):
+#     for row in current_gen:
+#         print(row)
+#     current_gen = next_gen(current_gen)
