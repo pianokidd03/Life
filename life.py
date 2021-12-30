@@ -1,15 +1,19 @@
-def set_matrix(matrix=[[0, 1, 0], [0, 0, 1], [1, 1, 1]]):
-    """Set a 8x8 matrix for testing purposes
-        Parameters
-        ----------
-        matrix: list
-            The matrix to set, the default is the seed for the glider shape
+def make_matrix(matrix=
+    [[0, 1, 0], 
+    [0, 0, 1], 
+    [1, 1, 1]]
+    ):
+    """Returns the inputted matrix, this function defaults to a glider
+    Parameters
+    ----------
+    matrix: list
+        The matrix to set, the default is the seed for the glider shape
 
-        Returns
-        ---------
-        list
-            8x8 2D matrix
-        """
+    Returns
+    ---------
+    list
+        8x8 2D matrix
+    """
     return matrix
 
 
@@ -28,9 +32,9 @@ def get_cell(matrix, x, y):
     Returns
     --------
     value: int
-            The cell's value. If the cell is in the matrix, the value
-            will be either 1 or 0 depending on whether the cell is living or not
-            If the cell is not in the matrix, None will be returned
+        The cell's value. If the cell is in the matrix, the value
+        will be either 1 or 0 depending on whether the cell is living or not
+        If the cell is not in the matrix, None will be returned
     """
     if (x >= 0) and (y >= 0):
         try:
@@ -56,7 +60,7 @@ def get_neighbours(matrix, x, y):
     Return
     ------
     neighbours: list
-            returns a list with all the values of the neighbouring cells
+        returns a list with all the values of the neighbouring cells
     """
     return([
         get_cell(matrix, x, y-1),  # up
@@ -86,11 +90,11 @@ def determine_fate(matrix, x, y):
     x: int
         x coordinate
 
-        Returns
-        -------
-        fate: str
-            The function returns 1 if the cell will live onto the next generation
-            0 is returned if te cell will die
+    Returns
+    -------
+    fate: str
+        The function returns 1 if the cell will live onto the next generation
+        0 is returned if te cell will die
     """
     neighbours = get_neighbours(matrix, x, y)
     num_of_live_neighbours = 0
@@ -110,6 +114,18 @@ def determine_fate(matrix, x, y):
 
 
 def next_gen(current_gen):
+    """Returns the map of the next generation based on the current generation
+    
+    Parameters
+    ----------
+    current_gen: list
+        2D matrix
+
+    Returns
+    -------
+    gen: list
+        2D matrix that models the next generation
+    """
     gen = []
     for row in current_gen:
         row.insert(0, 0)
