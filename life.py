@@ -140,6 +140,8 @@ def next_gen(current_gen):
         gen.append(row)
     return gen
 
+# TODO: strip unnecessary rows of dead cells
+
 # Simple use case:
 # ----------------
 # current_gen = make_matrix()
