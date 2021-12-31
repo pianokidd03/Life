@@ -12,7 +12,7 @@ def make_matrix(matrix=
     Returns
     ---------
     list
-        8x8 2D matrix
+        2D matrix
     """
     return matrix
 
